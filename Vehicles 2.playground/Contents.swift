@@ -1,6 +1,6 @@
 import UIKit
 
-class Car: Vehicle {
+class Car: Vehicle { //}, Fuelable, Nameable, Settable {
     private var name: String = ""
     private var fuelPercentage: Float = Float.random(in: 0...100)
     private var maxSpeed: Double
@@ -14,13 +14,13 @@ class Car: Vehicle {
         print("Fuel of \(name) to 100%")
         fuelPercentage = 100
     }
+    
+    func getFuel() -> Float {
+        self.fuelPercentage
+    }
 
     func getName() -> String {
         self.name
-    }
-
-    func getFuel() -> Float {
-        self.fuelPercentage
     }
     
     func getMaxSpeed() -> Double {
@@ -174,17 +174,49 @@ plane2.takeoff()
 
 /// Good read: Inheritence vs protocols: https://medium.com/@sambitprakash/protocol-vs-inheritance-b4bb4817bb5d
 
-protocol Vehicle {
+// MARK: - Protocols
+
+protocol Vehicle: CanBeFueled, CanBeNamed, CanHaveMaxSpeed {
+//    func fillFuel()
+//    func getName() -> String
+//    func getFuel() -> Float
+//    func getMaxSpeed() -> Double
+}
+
+protocol CanBeFueled {
     func fillFuel()
-    func getName() -> String
     func getFuel() -> Float
+}
+
+protocol CanBeNamed {
+    func getName() -> String
+}
+
+protocol CanHaveMaxSpeed {
     func getMaxSpeed() -> Double
 }
 
+// MARK: - Extensions
+
 extension Vehicle {
-    func cleanVehicle() {
-        print("Vehicle \(self.getName()) was cleaned!")
-    }
+    
+    // MARK: - TODO
+    // Maybe this is the way. Maybe not. But for sure there is a hidden one. Remember, we splitted the protocols above (composition maybe?). Find the solution to get rid of the duplicates using protocols and extensions. GOOD LUCK, my friend!
+    
+//    var fuelPercentage: Float {get set}
+//
+//    func cleanVehicle() {
+//        print("Vehicle \(self.getName()) was cleaned!")
+//    }
+//
+//    func fillFuel() {
+//        print("Fuel of \(self.getName()) to 100%")
+//        self.fuelPercentage = 100
+//    }
+//
+//    func getFuel() -> Float {
+//        self.fuelPercentage
+//    }
 }
 
 extension Plane {
