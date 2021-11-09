@@ -1,24 +1,24 @@
 import UIKit
 
-class VehicleActions: Vehicle {
+class Car: Vehicle {
     private var name: String = ""
     private var fuelPercentage: Float = Float.random(in: 0...100)
-    private var maxSpeed: Double = 0.0
-    
+    private var maxSpeed: Double
+
     init(name: String, maxSpeed: Double) {
         self.name = name
         self.maxSpeed = maxSpeed
     }
-    
+
     func fillFuel() {
         print("Fuel of \(name) to 100%")
         fuelPercentage = 100
     }
-    
+
     func getName() -> String {
         self.name
     }
-    
+
     func getFuel() -> Float {
         self.fuelPercentage
     }
@@ -29,25 +29,81 @@ class VehicleActions: Vehicle {
         }
         return self.maxSpeed
     }
-}
 
-class Car: VehicleActions {
     func mountABikeRack() {
-        print("Mounted a bike rack on the \(self.getName())")
+        print("Mounted a bike rack on the \(self.name)")
     }
 }
 
-class Motorcicle: VehicleActions {
+class Motorcicle: Vehicle {
+    private var name: String = ""
+    private var fuelPercentage: Float = Float.random(in: 0...100)
+    private var maxSpeed: Double
+
+    init(name: String, maxSpeed: Double) {
+        self.name = name
+        self.maxSpeed = maxSpeed
+    }
+
+    func fillFuel() {
+        print("Fuel of \(name) to 100%")
+        fuelPercentage = 100
+    }
+
+    func getName() -> String {
+        self.name
+    }
+
+    func getFuel() -> Float {
+        self.fuelPercentage
+    }
+    
+    func getMaxSpeed() -> Double {
+        if (self.getName() == "Alfa Romeo") {
+            print("Nothing is far when you are VELOCE!")
+        }
+        return self.maxSpeed
+    }
+
     func doAWheele() {
-        print("Did a wheele with the \(self.getName())")
+        print("Did a wheele with the \(name)")
     }
 }
 
-class Plane: VehicleActions {
+class Plane: Vehicle {
+    private var name: String = ""
+    private var fuelPercentage: Float = Float.random(in: 0...100)
+    private var maxSpeed: Double
+
+    init(name: String, maxSpeed: Double) {
+        self.name = name
+        self.maxSpeed = maxSpeed
+    }
+
+    func fillFuel() {
+        print("Fuel of \(name) to 100%")
+        fuelPercentage = 100
+    }
+
+    func getName() -> String {
+        self.name
+    }
+
+    func getFuel() -> Float {
+        self.fuelPercentage
+    }
+    
+    func getMaxSpeed() -> Double {
+        if (self.getName() == "Alfa Romeo") {
+            print("Nothing is far when you are VELOCE!")
+        }
+        return self.maxSpeed
+    }
+    
     func checkWings() {
         print("""
               
-              For the \(self.getName()) airplane: The secret of great wings? RedBull!
+              For the \(self.name) airplane: The secret of great wings? RedBull!
               Checked! ☑️
               """)
     }
