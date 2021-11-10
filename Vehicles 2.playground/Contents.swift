@@ -17,60 +17,18 @@ class VehicleTypes: Vehicle {
 }
 
 class Car: VehicleTypes {
-//    var name: String = ""
-//    var fuelPercentage: Float = Float.random(in: 0...100)
-//    var maxSpeed: Double
-//
-//    init(name: String, maxSpeed: Double) {
-//        self.name = name
-//        self.maxSpeed = maxSpeed
-//    }
-//
-//    func fillFuel() {
-//        print("Fuel of \(name) to 100%")
-//        fuelPercentage = 100
-//    }
-
     func mountABikeRack() {
         print("Mounted a bike rack on the \(self.getName())")
     }
 }
 
 class Motorcicle: VehicleTypes {
-//    var name: String = ""
-//    var fuelPercentage: Float = Float.random(in: 0...100)
-//    var maxSpeed: Double
-//
-//    init(name: String, maxSpeed: Double) {
-//        self.name = name
-//        self.maxSpeed = maxSpeed
-//    }
-//
-//    func fillFuel() {
-//        print("Fuel of \(name) to 100%")
-//        fuelPercentage = 100
-//    }
-
     func doAWheele() {
         print("Did a wheele with the \(name)")
     }
 }
 
 class Plane: VehicleTypes {
-//    var name: String = ""
-//    var fuelPercentage: Float = Float.random(in: 0...100)
-//    var maxSpeed: Double
-//
-//    init(name: String, maxSpeed: Double) {
-//        self.name = name
-//        self.maxSpeed = maxSpeed
-//    }
-//
-//    func fillFuel() {
-//        print("Fuel of \(name) to 100%")
-//        fuelPercentage = 100
-//    }
-    
     func checkWings() {
         print("""
               
