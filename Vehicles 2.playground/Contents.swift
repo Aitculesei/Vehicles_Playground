@@ -105,7 +105,9 @@ plane2.takeoff()
 
 // MARK: - Protocols
 
-protocol Vehicle: CanBeFueled, CanBeNamed, CanHaveMaxSpeed {
+typealias allNeededProtocols = CanBeFueled & CanBeNamed & CanHaveMaxSpeed
+
+protocol Vehicle: allNeededProtocols {
     var name: String { get set }
     var fuelPercentage: Float { get set }
     var maxSpeed: Double { get set }
