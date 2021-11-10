@@ -1,33 +1,18 @@
 import UIKit
 
-class Car: Vehicle { //}, Fuelable, Nameable, Settable {
-    private var name: String = ""
-    private var fuelPercentage: Float = Float.random(in: 0...100)
-    private var maxSpeed: Double
+class Car: Vehicle {
+    var name: String = ""
+    var fuelPercentage: Float = Float.random(in: 0...100)
+    var maxSpeed: Double
 
     init(name: String, maxSpeed: Double) {
         self.name = name
         self.maxSpeed = maxSpeed
     }
-
+    
     func fillFuel() {
         print("Fuel of \(name) to 100%")
         fuelPercentage = 100
-    }
-    
-    func getFuel() -> Float {
-        self.fuelPercentage
-    }
-
-    func getName() -> String {
-        self.name
-    }
-    
-    func getMaxSpeed() -> Double {
-        if (self.getName() == "Alfa Romeo") {
-            print("Nothing is far when you are VELOCE!")
-        }
-        return self.maxSpeed
     }
 
     func mountABikeRack() {
@@ -36,33 +21,18 @@ class Car: Vehicle { //}, Fuelable, Nameable, Settable {
 }
 
 class Motorcicle: Vehicle {
-    private var name: String = ""
-    private var fuelPercentage: Float = Float.random(in: 0...100)
-    private var maxSpeed: Double
+    var name: String = ""
+    var fuelPercentage: Float = Float.random(in: 0...100)
+    var maxSpeed: Double
 
     init(name: String, maxSpeed: Double) {
         self.name = name
         self.maxSpeed = maxSpeed
     }
-
+    
     func fillFuel() {
         print("Fuel of \(name) to 100%")
         fuelPercentage = 100
-    }
-
-    func getName() -> String {
-        self.name
-    }
-
-    func getFuel() -> Float {
-        self.fuelPercentage
-    }
-    
-    func getMaxSpeed() -> Double {
-        if (self.getName() == "Alfa Romeo") {
-            print("Nothing is far when you are VELOCE!")
-        }
-        return self.maxSpeed
     }
 
     func doAWheele() {
@@ -71,33 +41,18 @@ class Motorcicle: Vehicle {
 }
 
 class Plane: Vehicle {
-    private var name: String = ""
-    private var fuelPercentage: Float = Float.random(in: 0...100)
-    private var maxSpeed: Double
+    var name: String = ""
+    var fuelPercentage: Float = Float.random(in: 0...100)
+    var maxSpeed: Double
 
     init(name: String, maxSpeed: Double) {
         self.name = name
         self.maxSpeed = maxSpeed
     }
-
+    
     func fillFuel() {
         print("Fuel of \(name) to 100%")
         fuelPercentage = 100
-    }
-
-    func getName() -> String {
-        self.name
-    }
-
-    func getFuel() -> Float {
-        self.fuelPercentage
-    }
-    
-    func getMaxSpeed() -> Double {
-        if (self.getName() == "Alfa Romeo") {
-            print("Nothing is far when you are VELOCE!")
-        }
-        return self.maxSpeed
     }
     
     func checkWings() {
@@ -177,10 +132,9 @@ plane2.takeoff()
 // MARK: - Protocols
 
 protocol Vehicle: CanBeFueled, CanBeNamed, CanHaveMaxSpeed {
-//    func fillFuel()
-//    func getName() -> String
-//    func getFuel() -> Float
-//    func getMaxSpeed() -> Double
+    var name: String { get set }
+    var fuelPercentage: Float { get set }
+    var maxSpeed: Double { get set }
 }
 
 protocol CanBeFueled {
@@ -199,24 +153,24 @@ protocol CanHaveMaxSpeed {
 // MARK: - Extensions
 
 extension Vehicle {
+    func cleanVehicle() {
+        print("Vehicle \(self.getName()) was cleaned!")
+    }
     
-    // MARK: - TODO
-    // Maybe this is the way. Maybe not. But for sure there is a hidden one. Remember, we splitted the protocols above (composition maybe?). Find the solution to get rid of the duplicates using protocols and extensions. GOOD LUCK, my friend!
+    func getFuel() -> Float {
+        self.fuelPercentage
+    }
+
+    func getName() -> String {
+        self.name
+    }
     
-//    var fuelPercentage: Float {get set}
-//
-//    func cleanVehicle() {
-//        print("Vehicle \(self.getName()) was cleaned!")
-//    }
-//
-//    func fillFuel() {
-//        print("Fuel of \(self.getName()) to 100%")
-//        self.fuelPercentage = 100
-//    }
-//
-//    func getFuel() -> Float {
-//        self.fuelPercentage
-//    }
+    func getMaxSpeed() -> Double {
+        if (self.getName() == "Alfa Romeo") {
+            print("Nothing is far when you are VELOCE!")
+        }
+        return self.maxSpeed
+    }
 }
 
 extension Plane {
